@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple Baskets</title>
+  </head>
+  <style>
+    section {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+  <body>
+    <section>
+      <div class="basket1">Apple : <span>10</span></div>
+      <button class="rightbtn">&gt;</button>
+      <button class="leftbtn">&lt;</button>
+      <div class="basket2">Apple : <span>0</span></div>
+    </section>
+  </body>
+  <script>
+    const basket1 = document.querySelector(".basket1 span");
+    const basket2 = document.querySelector(".basket2 span");
+    const rightBtn = document.querySelector(".rightbtn");
+    const leftBtn = document.querySelector(".leftbtn");
+
+    let basket1Apple = 10;
+    let basket2Apple = 0;
+
+    function updateBaskets() {
+      basket1.textContent = basket1Apple;
+      basket2.textContent = basket2Apple;
+    }
+
+    updateBaskets();
+
+    rightBtn.addEventListener("click", () => {
+      if (basket1Apple > 0) {
+        basket1Apple--;
+        basket2Apple++;
+        updateBaskets();
+      }
+    });
+
+    leftBtn.addEventListener("click", () => {
+      if (basket2Apple > 0) {
+        basket2Apple--;
+        basket1Apple++;
+        updateBaskets();
+      }
+    });
+  </script>
+</html>
